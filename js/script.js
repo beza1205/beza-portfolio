@@ -1,44 +1,3 @@
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href") === `#${current}`){
-            link.classList.add("active");
-        }
-
-    });
-
-});
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 50){
-        navbar.classList.add("scrolled");
-    }else{
-        navbar.classList.remove("scrolled");
-    }
-
-});
-
 // Active Navigation
 
 const sections = document.querySelectorAll("section");
@@ -122,3 +81,13 @@ imageUpload.addEventListener("change", function () {
 
 });
 
+fetch("https://portfolio-analytics-backend-agcc.onrender.com/api/track", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        page: window.location.pathname,
+        referrer: document.referrer
+    })
+}).catch(err => console.log("Analytics error:", err));
