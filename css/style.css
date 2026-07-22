@@ -10,7 +10,7 @@
 
 body{
     font-family:'Inter',sans-serif;
-    background-image:url('../images/backcard.jpeg');
+    background-image:url('../images/profile1.jpeg');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -182,12 +182,45 @@ body{
 }
 
 .about-card{
-    background-image: url('../images/backcard.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 20px;
     padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
+
+.about-card h3,
+.about-card p{
+    position:relative;
+    z-index:1;
+}
+
+.education{
+    background-image:url('../images/education.jpeg');
+}
+
+.interests{
+    background-image:url('../images/interest.jpeg');
+}
+
+.about-card{
+    transition:0.3s ease;
+}
+
+.about-card:hover{
+    transform:translateY(-5px);
+}
+.career{
+    background-image:url('../images/cereergoal.jpeg');
 }
 
 .about-card h3{
@@ -213,13 +246,56 @@ body{
 }
 
 .skill-card{
-     background-image: url('../images/backcard.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 20px;
     padding: 25px;
+    position: relative;
+    overflow: hidden;
 }
+
+.skill-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
+
+.skill-card h3,
+.skill-card p{
+    position:relative;
+    z-index:1;
+}
+
+.networking{
+    background-image:url('../images/networking.jpeg');
+}
+
+.linux{
+    background-image:url('../images/linux.jpeg');
+}
+
+.python{
+    background-image:url('../images/python.jpeg');
+}
+
+.bash{
+    background-image:url('../images/bash.jpeg');
+}
+
+.nmap{
+    background-image:url('../images/Nmap.jpeg');
+}
+
+.wireshark{
+    background-image:url('../images/Wireshark.jpeg');
+}
+
+.html-css-js{
+    background-image:url('../images/html,css,java.jpeg');
+}
+
 
 .skill-card:hover{
     transform:translateY(-5px);
@@ -243,7 +319,7 @@ body{
 }
 
 .project-card{
-     background-image: url('../images/backcard.jpeg');
+     background-image: url('../images/procard.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -295,7 +371,7 @@ body{
 }
 
 .certificate-card{
-     background-image: url('../images/backcard.jpeg');
+     background-image: url('../images/procard.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -499,4 +575,47 @@ body{
     margin:20px auto;
     border-radius:15px;
     border:1px solid #1e293b;
+}
+
+.certificate-image{
+    width:100%;
+    max-width:800px;
+    display:block;
+    margin:20px auto;
+    border-radius:15px;
+    border:1px solid #1e293b;
+}
+
+/* Projects + Certificates Side by Side */
+
+.projects-certificates{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    padding:100px 8%;
+    align-items:start;
+}
+
+.project-column,
+.certificate-column{
+    display:flex;
+    flex-direction:column;
+}
+
+@media (max-width:768px){
+    .projects-certificates{
+        grid-template-columns:1fr;
+    }
+}
+
+.project-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+@media (max-width:768px){
+    .project-container{
+        grid-template-columns:1fr;
+    }
 }
